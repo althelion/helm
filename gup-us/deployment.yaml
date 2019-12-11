@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: gup-us-uc-fe
-  namespace: gup-us
+  namespace: spinnaker
   labels:
     app: gup-us-uc-fe
 spec:
@@ -25,7 +25,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: gup-us-uc-api
-  namespace: gup-us
+  namespace: spinnaker
   labels:
     app: gup-us-uc-api
 spec:
@@ -48,7 +48,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: gup-us-seg-fe
-  namespace: gup-us
+  namespace: spinnaker
   labels:
     app: gup-us-seg-fe
 spec:
