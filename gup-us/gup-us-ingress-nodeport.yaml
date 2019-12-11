@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gup-us-seg-fe-ingress
+  namespace: gup-us
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: eaddr-gup-d-uc1-ingress-https
+spec:
+  tls:
+    - secretName: liverampapac-tls-v2
+  rules:
+    - host: seg.liverampapac.com
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: gup-us-seg-fe-nodeport
+            servicePort: 80
+    - host: uc.liverampapac.com
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: gup-us-uc-fe-nodeport
+            servicePort: 80

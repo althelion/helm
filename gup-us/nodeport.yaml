@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gup-us-uc-fe-nodeport
+  namespace: gup-us
+  labels:
+    app: gup-us-uc-fe-nodeport
+spec:
+  selector:
+    app: gup-us-uc-fe
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gup-us-uc-api-nodeport
+  namespace: gup-us
+  labels:
+    app: gup-us-uc-api-nodeport
+spec:
+  selector:
+    app: gup-us-uc-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gup-us-seg-fe-nodeport
+  namespace: gup-us
+  labels:
+    app: gup-us-seg-fe-nodeport
+spec:
+  selector:
+    app: gup-us-seg-fe
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort

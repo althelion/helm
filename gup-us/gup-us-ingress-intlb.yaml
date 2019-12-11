@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gup-us-seg-fe-ingress-intlb
+  namespace: gup-us
+spec:
+  tls:
+    - secretName: liverampapac-tls-v2
+  rules:
+    - host: seg.liverampapac.com
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: gup-us-seg-fe-intlb
+            servicePort: 80
+    - host: uc.liverampapac.com
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: gup-us-uc-fe-intlb
+            servicePort: 80

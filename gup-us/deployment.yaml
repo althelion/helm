@@ -1,0 +1,68 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gup-us-uc-fe
+  namespace: gup-us
+  labels:
+    app: gup-us-uc-fe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  gup-us-uc-fe
+  template:
+    metadata:
+      labels:
+        app: gup-us-uc-fe
+    spec:
+      containers:
+        - name: gup-us-uc-fe
+          image: asia.gcr.io/devops-apac-mgmt/select-core-uc-fe:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gup-us-uc-api
+  namespace: gup-us
+  labels:
+    app: gup-us-uc-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  gup-us-uc-api
+  template:
+    metadata:
+      labels:
+        app: gup-us-uc-api
+    spec:
+      containers:
+        - name: gup-us-uc-api
+          image: asia.gcr.io/devops-apac-mgmt/select-core-uc-api:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gup-us-seg-fe
+  namespace: gup-us
+  labels:
+    app: gup-us-seg-fe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app:  gup-us-seg-fe
+  template:
+    metadata:
+      labels:
+        app: gup-us-seg-fe
+    spec:
+      containers:
+        - name: gup-us-seg-fe
+          image: asia.gcr.io/devops-apac-mgmt/select-tv-segmentation-fe:latest
+          ports:
+            - containerPort: 8080
